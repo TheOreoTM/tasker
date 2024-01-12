@@ -1,3 +1,6 @@
+/*
+Copyright © 2024 TheOreoTM
+*/
 package cmd
 
 import (

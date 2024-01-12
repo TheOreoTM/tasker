@@ -1,5 +1,5 @@
 /*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+Copyright © 2024 TheOreoTM
 */
 package cmd
 
@@ -20,15 +20,16 @@ var viewCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		// open the json file and print the list
 
-		todos, err := GetTodos()
+		todolist := NewTodoList()
+		tasks := todolist.GetTasks()
 
-		if err != nil {
-			fmt.Println(err)
+		if len(tasks) == 0 {
+			fmt.Println("You have no tasks in your list.")
 			return
 		}
 
-		for _, task := range todos.Tasks {
-			fmt.Println(task)
+		for _, task := range tasks {
+			fmt.Printf(task.Format())
 		}
 
 	},
